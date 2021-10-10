@@ -1,18 +1,20 @@
-import React from "react"
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
 const App = () => {
+  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`;
 
-  const APP_ID = "f12ccff5";
-  const APP_KEY = "60a4fd34b82a4aac936a705eee1713dd";
-  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
-
-  return(
+  return (
     <div className="App">
       <h1>Hello Ayush</h1>
+      <form className="search-form">
+        <input type="text" className="search-bar" />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
 export default App;
