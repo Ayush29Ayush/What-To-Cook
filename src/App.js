@@ -5,7 +5,8 @@ import './App.css';
 const App = () => {
 
   const APP_ID = "f12ccff5";
-  const APP_KEY = ""
+  const APP_KEY = "60a4fd34b82a4aac936a705eee1713dd";
+  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
 
   return(
     <div className="App">
