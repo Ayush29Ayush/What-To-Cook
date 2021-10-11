@@ -17,10 +17,15 @@ const App = () => {
   //   console.log("Effect has been run...");
   // });
   
-  // Runs only once due to the second parameter , []
+  // // Runs only once due to the second parameter , []
+  // useEffect(() => {
+  //   console.log("Effect has been run...");
+  // },[]);
+
+  // Runs only when counter is changed , [counter]
   useEffect(() => {
     console.log("Effect has been run...");
-  },[]);
+  },[counter]);
 
   return (
     <div className="App">
