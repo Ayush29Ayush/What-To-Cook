@@ -2,30 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
-  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`;
+  useEffect(async () => {}, []);
 
-  //! What is state in React?
-  // State is a plain JavaScript object used by React to represent an information about the component’s current situation.It’s managed in the component (just like any variable declared in a function). The difference is while a “normal” variable “disappears” when their function exits, the state variables are preserved by React.
-
-  //! useState
-  // states are just like objects in Javascript so the below code means that there is an object with counter = 0 and to update that counter a function named setCounter is used.
-  const [counter, setCounter] = useState(0);
-
-  //! useEffect
-  // // Runs everytime when there's any change in the UI
-  // useEffect(() => {
-  //   console.log("Effect has been run...");
-  // });
-  
-  // // Runs only once due to the second parameter , []
-  // useEffect(() => {
-  //   console.log("Effect has been run...");
-  // },[]);
-
-  // Runs only when counter is changed , [counter]
-  useEffect(() => {
-    console.log("Effect has been run...");
-  },[counter]);
+  const getRecipes = async () => {
+    const response = await fetch(
+      `https://api.edamam.com/search?q=chicken&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
+    );
+  };
 
   return (
     <div className="App">
@@ -36,12 +19,6 @@ const App = () => {
           Search
         </button>
       </form>
-      <br />
-      <h1>Example of useState and useEffect(open console)... </h1>
-      <h2 onClick={() => setCounter(counter + 1)}>
-        Value of counter = {counter}
-      </h2>
-      <br />
     </div>
   );
 };
