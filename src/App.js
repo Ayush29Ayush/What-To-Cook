@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
-
   let app_id = process.env.REACT_APP_CLIENT_ID;
   let app_key = process.env.REACT_APP_CLIENT_KEY;
 
+  //! State
+  const [recipes, setRecipes] = useState([]);
+
+  //! useEffect
   useEffect(() => {
     getRecipes();
   }, []);
@@ -18,6 +21,10 @@ const App = () => {
     const data = await response.json();
     console.log(response);
     console.log(data);
+    console.log(data.hits);
+
+    //! Setting recipes from empty array[] to an array containing data.hits using function named setRecipes
+    setRecipes(data.hits);
   };
 
   return (
