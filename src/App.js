@@ -12,9 +12,15 @@ const App = () => {
   const [counter, setCounter] = useState(0);
 
   //! useEffect
+  // // Runs everytime when there's any change in the UI
+  // useEffect(() => {
+  //   console.log("Effect has been run...");
+  // });
+  
+  // Runs only once due to the second parameter , []
   useEffect(() => {
     console.log("Effect has been run...");
-  });
+  },[]);
 
   return (
     <div className="App">
