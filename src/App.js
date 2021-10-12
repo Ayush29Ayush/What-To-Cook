@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Recipe from "./Recipe";
 import "./App.css";
 
 const App = () => {
@@ -19,12 +20,13 @@ const App = () => {
     );
     // Converting response to json for ease
     const data = await response.json();
-    console.log(response);
-    console.log(data);
-    console.log(data.hits);
+    // console.log(response);
+    // console.log(data);
+    // console.log(data.hits);
 
     //! Setting recipes from empty array[] to an array containing data.hits using function named setRecipes
     setRecipes(data.hits);
+    console.log(data.hits);
   };
 
   return (
@@ -36,6 +38,9 @@ const App = () => {
           Search
         </button>
       </form>
+      {recipes.map((xyzrecipe) => (
+        <Recipe />
+      ))}
     </div>
   );
 };
