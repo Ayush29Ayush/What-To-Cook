@@ -40,6 +40,8 @@ const App = () => {
       </form>
       {recipes.map((xyzrecipe) => (
         <Recipe
+          // Unique Key is provided so that it is easy to address a particular part 
+          key={xyzrecipe.recipe.label}
           title={xyzrecipe.recipe.label}
           calories={xyzrecipe.recipe.calories}
           image={xyzrecipe.recipe.image}
