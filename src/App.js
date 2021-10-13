@@ -9,7 +9,7 @@ const App = () => {
   //! State
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState('chicken') // this will be the term used for getting recipes from server and will only be activated when search button is clicked.
+  const [query, setQuery] = useState('') // this will be the term used for getting recipes from server and will only be activated when search button is clicked.
 
   //! useEffect
   // useEffect(() => {
@@ -53,8 +53,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Hello Ayush</h1>
-      <form className="search-form" onSubmit={getSearch}>
+      {/* <h1 className="heading">Hello Ayush</h1> */}
+      <h1 className="heading">Don't know what to cook</h1>
+      <h1 className="heading">Use What-To-Cook &#128521;</h1>
+      <form className="search-form" onSubmit={getSearch} >
         <input
           type="text"
           className="search-bar"

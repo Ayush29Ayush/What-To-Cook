@@ -6,7 +6,6 @@ To reiterate, VH stands for “viewport height”, which is the viewable screen�
 
 * {
   margin: 0px;
-  padding: 0px;
 }
 
 .App {
@@ -19,12 +18,14 @@ To reiterate, VH stands for “viewport height”, which is the viewable screen�
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 
 .search-bar {
   width: 50%;
   border: none;
   padding: 10px;
+  outline: none;
 }
 
 .search-button {
@@ -39,4 +40,8 @@ To reiterate, VH stands for “viewport height”, which is the viewable screen�
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.heading{
+  text-align: center;
 }
