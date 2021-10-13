@@ -8,6 +8,7 @@ const App = () => {
 
   //! State
   const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState('');
 
   //! useEffect
   useEffect(() => {
@@ -33,7 +34,7 @@ const App = () => {
     <div className="App">
       <h1>Hello Ayush</h1>
       <form className="search-form">
-        <input type="text" className="search-bar" />
+        <input type="text" className="search-bar" value={search} />
         <button type="submit" className="search-button">
           Search
         </button>
