@@ -65,6 +65,7 @@ const App = () => {
           Search
         </button>
       </form>
+      <div className="recipes">
       {recipes.map((xyzrecipe) => (
         <Recipe
           // Unique Key is provided so that it is easy to address a particular part
@@ -75,6 +76,7 @@ const App = () => {
           ingredients={xyzrecipe.recipe.ingredients}
         />
       ))}
+      </div>
     </div>
   );
 };
