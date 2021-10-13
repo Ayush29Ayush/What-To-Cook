@@ -4,30 +4,30 @@ To reiterate, VH stands for “viewport height”, which is the viewable screen�
 
 /* For gradient => https://webgradients.com/ */
 
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
 
-.App{
+.App {
   min-height: 100vh;
   background-image: linear-gradient(to top, #50cc7f 0%, #f5d100 100%);
 }
 
-.search-form{
+.search-form {
   min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.search-bar{
+.search-bar {
   width: 50%;
   border: none;
   padding: 10px;
 }
 
-.search-button{
+.search-button {
   background: lightcoral;
   border: none;
   /* border-radius: 10px; */
@@ -35,7 +35,7 @@ To reiterate, VH stands for “viewport height”, which is the viewable screen�
   color: white;
 }
 
-.recipes{
+.recipes {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
