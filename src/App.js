@@ -3,19 +3,21 @@ import Recipe from "./Recipe";
 import "./App.css";
 
 const App = () => {
-  // let app_id = process.env.REACT_APP_CLIENT_ID;
-  // let app_key = process.env.REACT_APP_CLIENT_KEY;
-  let app_id;
-  let app_key;
 
-  if (process.env.NODE_ENV !== 'production') {
-    app_id = process.env.REACT_APP_CLIENT_ID;
-    app_key = process.env.REACT_APP_CLIENT_KEY
-  } else {
-    app_id = process.env.CLIENT_ID;
-    app_key = process.env.CLIENT_KEY 
-  }
-  
+  //! For the environment variables we set in the Netlify UI to be used we need to let Netlify run the build which as far as I know only works if you deploy from GitHub. If we run "npm run build", then "netlify deploy --prod" we are running the build on our local machine so our environment variables will be undefined
+  // let app_id;
+  // let app_key;
+
+  // if (process.env.NODE_ENV !== 'production') {
+  //   app_id = process.env.REACT_APP_CLIENT_ID;
+  //   app_key = process.env.REACT_APP_CLIENT_KEY
+  // } else {
+  //   app_id = process.env.CLIENT_ID;
+  //   app_key = process.env.CLIENT_KEY;
+  // }
+  //! So directly assign the values to avoid issued like undefined id and keys
+  let app_id = process.env.REACT_APP_CLIENT_ID;
+  let app_key = process.env.REACT_APP_CLIENT_KEY;
 
   //! State
   const [recipes, setRecipes] = useState([]);
