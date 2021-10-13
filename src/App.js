@@ -3,13 +3,24 @@ import Recipe from "./Recipe";
 import "./App.css";
 
 const App = () => {
-  let app_id = process.env.REACT_APP_CLIENT_ID;
-  let app_key = process.env.REACT_APP_CLIENT_KEY;
+  // let app_id = process.env.REACT_APP_CLIENT_ID;
+  // let app_key = process.env.REACT_APP_CLIENT_KEY;
+  let app_id;
+  let app_key;
+
+  if (process.env.NODE_ENV !== 'production') {
+    app_id = process.env.REACT_APP_CLIENT_ID;
+    app_key = process.env.REACT_APP_CLIENT_KEY
+  } else {
+    app_id = process.env.CLIENT_ID;
+    app_key = process.env.CLIENT_KEY 
+  }
+  
 
   //! State
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState('') // this will be the term used for getting recipes from server and will only be activated when search button is clicked.
+  const [query, setQuery] = useState(""); // this will be the term used for getting recipes from server and will only be activated when search button is clicked.
 
   //! useEffect
   // useEffect(() => {
@@ -42,21 +53,20 @@ const App = () => {
     // console.log(e.target.value)
     setSearch(e.target.value);
     // console.log(search)
-
   };
 
   const getSearch = (e) => {
     e.preventDefault(); // prevents from refreshing the page on submitting
     setQuery(search);
-    setSearch(''); // after setting the query , again setting search to blank , since it will be reflected in the UI.
-  }
+    setSearch(""); // after setting the query , again setting search to blank , since it will be reflected in the UI.
+  };
 
   return (
     <div className="App">
       {/* <h1 className="heading">Hello Ayush</h1> */}
       <h1 className="heading">Don't know what to cook</h1>
       <h1 className="heading">Use What-To-Cook &#128521;</h1>
-      <form className="search-form" onSubmit={getSearch} >
+      <form className="search-form" onSubmit={getSearch}>
         <input
           type="text"
           className="search-bar"
@@ -68,16 +78,16 @@ const App = () => {
         </button>
       </form>
       <div className="recipes">
-      {recipes.map((xyzrecipe) => (
-        <Recipe
-          // Unique Key is provided so that it is easy to address a particular part
-          key={xyzrecipe.recipe.label}
-          title={xyzrecipe.recipe.label}
-          calories={xyzrecipe.recipe.calories}
-          image={xyzrecipe.recipe.image}
-          ingredients={xyzrecipe.recipe.ingredients}
-        />
-      ))}
+        {recipes.map((xyzrecipe) => (
+          <Recipe
+            // Unique Key is provided so that it is easy to address a particular part
+            key={xyzrecipe.recipe.label}
+            title={xyzrecipe.recipe.label}
+            calories={xyzrecipe.recipe.calories}
+            image={xyzrecipe.recipe.image}
+            ingredients={xyzrecipe.recipe.ingredients}
+          />
+        ))}
       </div>
     </div>
   );
