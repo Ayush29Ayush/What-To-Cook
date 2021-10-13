@@ -39,7 +39,11 @@ const App = () => {
         </button>
       </form>
       {recipes.map((xyzrecipe) => (
-        <Recipe />
+        <Recipe
+          title={xyzrecipe.recipe.label}
+          calories={xyzrecipe.recipe.calories}
+          image={xyzrecipe.recipe.image}
+        />
       ))}
     </div>
   );
