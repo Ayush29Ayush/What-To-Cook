@@ -8,7 +8,7 @@ const App = () => {
 
   //! State
   const [recipes, setRecipes] = useState([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   //! useEffect
   useEffect(() => {
@@ -30,18 +30,31 @@ const App = () => {
     console.log(data.hits);
   };
 
+  const updateSearch = (e) => {
+    // Thus e.target.value is the value property of some DOM element, in this case that means the text entered in the search input.
+    console.log(e.target.value)
+    setSearch(e.target.value);
+    // console.log(search)
+
+  };
+
   return (
     <div className="App">
       <h1>Hello Ayush</h1>
       <form className="search-form">
-        <input type="text" className="search-bar" value={search} />
+        <input
+          type="text"
+          className="search-bar"
+          value={search}
+          onChange={updateSearch}
+        />
         <button type="submit" className="search-button">
           Search
         </button>
       </form>
       {recipes.map((xyzrecipe) => (
         <Recipe
-          // Unique Key is provided so that it is easy to address a particular part 
+          // Unique Key is provided so that it is easy to address a particular part
           key={xyzrecipe.recipe.label}
           title={xyzrecipe.recipe.label}
           calories={xyzrecipe.recipe.calories}
